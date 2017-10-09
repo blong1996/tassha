@@ -71,7 +71,7 @@ def api_ai(query):
         return "Sorry, I couldn't understand that question"
 
 
-@tassha_api.route('/twilio/<string:message>', methods=['POST', 'GET'])
+@tassha_api.route('/twilio/<string:message>', methods=['POST', 'GET', 'OPTIONS'])
 def sms(message):
 
     req = request.get_json()
