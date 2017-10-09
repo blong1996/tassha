@@ -64,10 +64,11 @@ def api_ai(query):
     status = response['status']['code']
     if status == 200:
         # Sending the textual response of the bot.
-        return response['result']['fulfillment']['speech']
+        return {"speech": response['result']['fulfillment']['speech']}
 
     else:
-        return "Sorry, I couldn't understand that question"
+        res = {"speech": "Sorry, I couldn't understand that question"}
+        return res
 
 # def processRequest(req):
 # if req.get("result").get("action") != "yahooWeatherForecast":
