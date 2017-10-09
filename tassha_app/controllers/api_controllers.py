@@ -1,5 +1,6 @@
 from flask import Blueprint, request, json, make_response, jsonify
 import os.path
+from twilio.rest import Client
 import sys
 
 try:
@@ -64,11 +65,34 @@ def api_ai(query):
     status = response['status']['code']
     if status == 200:
         # Sending the textual response of the bot.
-        return {"speech": response['result']['fulfillment']['speech']}
+        return response['result']['fulfillment']['speech']
 
     else:
-        res = {"speech": "Sorry, I couldn't understand that question"}
-        return res
+        return "Sorry, I couldn't understand that question"
+
+
+@tassha_api.route('/twilio/<string:message>', methods=['POST', 'GET'])
+def sms(message):
+
+    req = request.get_json()
+
+    # req['message']
+    account_sid = "AC69bbe9a6d1a93d49faad1459d99d62c8"
+    auth_token = "294143f07d2efc2e6a5ebe23c7d63401"
+
+    client = Client(account_sid, auth_token)
+
+    client.api.account.messages.create(
+        to="+14044060515",
+        from_="+19196263606",
+        body=message)
+
+
+    # client.api.account.messages.create(
+    #     to="+19196495951",
+    #     from_="+19196263606",
+    #     body=message)
+    return "Success"
 
 # def processRequest(req):
 # if req.get("result").get("action") != "yahooWeatherForecast":
