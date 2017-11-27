@@ -82,10 +82,10 @@ def sms(message):
 
     client = Client(account_sid, auth_token)
 
-    client.api.account.messages.create(
-        to="+14044060515",
-        from_="+19196263606",
-        body=message)
+#     client.api.account.messages.create(
+#         to="+14044060515",
+#         from_="+19196263606",
+#         body=message)
     client.api.account.messages.create(
         to="+13366093681",
         from_="+13368148787",
