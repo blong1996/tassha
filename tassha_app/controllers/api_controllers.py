@@ -77,8 +77,8 @@ def sms(message):
     req = request.get_json()
 
     # req['message']
-    account_sid = "AC69bbe9a6d1a93d49faad1459d99d62c8"
-    auth_token = "294143f07d2efc2e6a5ebe23c7d63401"
+    account_sid = "ACe1f2a88494723fbb8754a7a2959dea7d"
+    auth_token = "19228b1bb9c5ab1637e423c243b3164b"
 
     client = Client(account_sid, auth_token)
 
@@ -88,7 +88,11 @@ def sms(message):
         body=message)
     client.api.account.messages.create(
         to="+13366093681",
-        from_="+19196263606",
+        from_="+13368148787",
+        body=message)
+    client.api.account.messages.create(
+        to="+14044060515",
+        from_="+13368148787",
         body=message)
 
     # client.api.account.messages.create(
