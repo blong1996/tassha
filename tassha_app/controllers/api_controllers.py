@@ -90,10 +90,10 @@ def sms(message):
         to="+13366093681",
         from_="+13368148787",
         body=message)
-    client.api.account.messages.create(
-        to="+14044060515",
-        from_="+13368148787",
-        body=message)
+#     client.api.account.messages.create(
+#         to="+14044060515",
+#         from_="+13368148787",
+#         body=message)
 
     # client.api.account.messages.create(
     #     to="+19196495951",
